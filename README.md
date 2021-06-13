@@ -1,0 +1,2 @@
+# dws-herodotus
+Log service
