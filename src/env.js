@@ -9,7 +9,6 @@ if (typeof CORS_ORIGIN !== 'undefined' && CORS_ORIGIN !== '') {
 
 module.exports = {
   appName: getenv('APP_NAME'),
-  appNameShort: getenv('APP_NAME_SHORT'),
   env: getenv('NODE_ENV'),
   port: parseInt(getenv('PORT_HERODOTUS'), 10),
   corsOptions: corsOptions,
