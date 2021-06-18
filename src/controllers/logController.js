@@ -41,8 +41,8 @@ class LogController extends ControllerBase {
     this.writeErrorToFile = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_FILE, mode: 'error', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_FILE, mode: 'error', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
@@ -51,8 +51,8 @@ class LogController extends ControllerBase {
     this.writeErrorToDb = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_DB, mode: 'error', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_DB, mode: 'error', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
@@ -61,8 +61,8 @@ class LogController extends ControllerBase {
     this.writeWarnToFile = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_FILE, mode: 'warn', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_FILE, mode: 'warn', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
@@ -71,8 +71,8 @@ class LogController extends ControllerBase {
     this.writeWarnToDb = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_DB, mode: 'warn', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_DB, mode: 'warn', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
@@ -81,8 +81,8 @@ class LogController extends ControllerBase {
     this.writeInfoToFile = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_FILE, mode: 'info', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_FILE, mode: 'info', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
@@ -91,8 +91,8 @@ class LogController extends ControllerBase {
     this.writeInfoToDb = async (req, res) => {
       const ip = ipAddress(req);
       try {
-        await this.logCore({ type: LOG_TO_DB, mode: 'info', ip, ...req.body });
-        return res.json(HttpStatusResponse.created('ok', undefined, ip));
+        const response = await this.logCore({ type: LOG_TO_DB, mode: 'info', ip, ...req.body });
+        return res.json(HttpStatusResponse.created(response.value, undefined, ip));
       } catch (err) {
         return res.json(HttpStatusResponse.serverError(undefined, isProduction ? err.message : err, ip));
       }
