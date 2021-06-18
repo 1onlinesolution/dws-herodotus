@@ -50,9 +50,9 @@ jobs:
 
     - run: npm test
       env:
-        APP_NAME: ${{secrets.APP_NAME}}
-        HERODOTUS_DATABASE_URL: ${{secrets.HERODOTUS_DATABASE_URL}}
-        PORT_HERODOTUS: ${{secrets.PORT_HERODOTUS}}
+        APP_NAME: ${{test.APP_NAME}}
+        HERODOTUS_DATABASE_URL: ${{test.HERODOTUS_DATABASE_URL}}
+        PORT_HERODOTUS: ${{test.PORT_HERODOTUS}}
 
 #  publish-gpr:
 #    needs: build
